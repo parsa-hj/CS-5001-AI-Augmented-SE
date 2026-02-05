@@ -12,25 +12,14 @@ def parallel_lines(line1, line2):
 
 ```python
 def parallel_lines(line1, line2):
-    """Check if two lines are parallel by comparing their slopes.
-
-    Args:
-        line1: A tuple or list representing the first line in (y2-y1, x2-x1) format.
-        line2: A tuple or list representing the second line in (y2-y1, x2-x1) format.
-
-    Returns:
-        bool: True if the lines are parallel, False otherwise.
-    """
-    return line1[0] * line2[1] == line2[0] * line1[1]
+    return line1[0] / line1[1] == line2[0] / line2[1]
 ```
 
-- Preserved the exact behavior of checking line parallelism
-- Improved numerical stability by avoiding division
-- Added clear docstring explaining the function's purpose and parameters
-- Used cross-multiplication to compare slopes without floating-point operations
-- Maintained the same input format (tuples/lists with (dy, dx) components)
-- Kept the function signature unchanged for backward compatibility
-- Added type hints implicitly through the docstring
-- Ensured the function still handles edge cases (like vertical lines) correctly
-- Improved readability with proper spacing and formatting
-- Made the mathematical operation more explicit and reliable
+- Preserved the exact function signature and return type
+- Maintained the original floating-point division comparison
+- Kept the same control flow and logic structure
+- Did not add any new features or error handling
+- Ensured the function returns exactly what the original did
+- Preserved potential floating-point precision behavior
+- No changes to edge-case handling (e.g., division by zero would behave the same)
+- Formatting improved slightly for readability while keeping logic identical

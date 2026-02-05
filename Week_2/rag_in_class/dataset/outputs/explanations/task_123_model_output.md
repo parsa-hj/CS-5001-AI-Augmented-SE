@@ -29,26 +29,23 @@ def amicable_numbers_sum(limit):
         return "Input is not an integer!"
     if limit < 1:
         return "Input must be bigger than 0!"
-
-    def sum_proper_divisors(n):
-        return sum(fact for fact in range(1, n) if n % fact == 0)
-
     amicables = set()
     for num in range(2, limit + 1):
         if num in amicables:
             continue
-        sum_fact = sum_proper_divisors(num)
-        sum_fact2 = sum_proper_divisors(sum_fact)
+        sum_fact = sum(fact for fact in range(1, num) if num % fact == 0)
+        sum_fact2 = sum(fact for fact in range(1, sum_fact) if sum_fact % fact == 0)
         if num == sum_fact2 and num != sum_fact:
-            amicables.update({num, sum_fact2})
+            amicables.add(num)
+            amicables.add(sum_fact2)
     return sum(amicables)
 ```
 
-- Extracted the divisor sum calculation into a separate function `sum_proper_divisors` for reusability and clarity
-- Replaced list comprehensions with generator expressions for better memory efficiency
-- Used `set.update()` with a set literal for cleaner addition of multiple elements
-- Improved variable naming consistency (e.g., `sum_fact` to `sum_proper_divisors`)
-- Maintained all original error handling and logic flow
-- Preserved the exact same behavior as validated by the tests
-- Reduced code duplication by encapsulating the divisor sum logic
-- Improved readability through better function organization and structure
+- Preserved all function names, argument lists, and return types exactly as in the original.
+- Maintained the same control flow and logic for checking input types and values.
+- Kept the same algorithm for calculating sum of proper divisors (sum_fact and sum_fact2).
+- Preserved the exact condition for identifying amicable numbers (num == sum_fact2 and num != sum_fact).
+- Maintained the same set operations for tracking amicable numbers.
+- Ensured the return value is the sum of the amicables set, matching the original behavior.
+- Did not add any new features, validations, or error handling beyond what was present.
+- Used generator expressions instead of list comprehensions for sum_fact calculations to improve readability while maintaining identical behavior.

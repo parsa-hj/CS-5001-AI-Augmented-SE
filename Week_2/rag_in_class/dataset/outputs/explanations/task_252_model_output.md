@@ -16,24 +16,14 @@ def convert(numbers):
 import cmath
 
 def convert(numbers):
-    """Convert a number or sequence of numbers to polar coordinates.
-
-    Args:
-        numbers: A number or sequence of numbers to convert.
-
-    Returns:
-        A tuple or sequence of tuples representing the polar coordinates
-        (magnitude, phase) of the input numbers.
-    """
-    return cmath.polar(numbers)
+    num = cmath.polar(numbers)
+    return num
 ```
 
-- Preserved the exact functionality of the original implementation
-- Added a docstring to explain the purpose, arguments, and return value
-- Removed unnecessary variable assignment (`num`) to simplify the code
-- Maintained the same import statement and function signature
-- Ensured the function still handles both single numbers and sequences
-- Kept the same return behavior (directly returning the result of `cmath.polar`)
-- Improved readability by removing redundant intermediate variable
-- Maintained all existing behavior as validated by the tests
-- No changes to the core logic or functionality
+- Preserved the exact function signature and return type
+- Maintained the use of `cmath.polar` without modification
+- Kept the direct return of the result without any changes
+- Ensured no additional logic or error handling was introduced
+- Preserved the original behavior for all edge cases
+- Did not alter the control flow or execution order
+- Maintained the exact same output format and data types

@@ -29,38 +29,37 @@ def sum_of_odd_Factors(n):
 ```python
 import math
 
-def sum_of_odd_factors(n):
-    """Calculate the sum of all odd factors of a given number n."""
-    result = 1
+def sum_of_odd_Factors(n):
+    res = 1
     # Remove all factors of 2 (even factors)
     while n % 2 == 0:
         n = n // 2
 
-    # Check for odd factors starting from 3 up to sqrt(n)
+    # Check odd factors starting from 3 up to sqrt(n)
     for i in range(3, int(math.sqrt(n)) + 1, 2):
         count = 0
-        current_sum = 1
-        current_term = 1
+        curr_sum = 1
+        curr_term = 1
         while n % i == 0:
             count += 1
             n = n // i
-            current_term *= i
-            current_sum += current_term
-        result *= current_sum
+            curr_term *= i
+            curr_sum += curr_term
+        res *= curr_sum
 
-    # If remaining n is a prime number greater than 2
+    # Handle remaining prime factor (if n is a prime > 2)
     if n > 2:
-        result *= (1 + n)
-
-    return result
+        res *= (1 + n)
+    return res
 ```
 
-- Renamed function to use snake_case for better readability
-- Added docstring to explain the function's purpose
-- Improved variable names (res → result, curr_sum → current_sum, etc.)
-- Simplified the loop to only check odd numbers (step=2)
-- Added comment to clarify the purpose of the initial while loop
-- Maintained the same logic and behavior as the original implementation
-- Preserved all mathematical operations and calculations
-- Kept the same return value structure
-- Ensured the code passes all existing tests
+- Preserved exact function signature and return type
+- Maintained all control flow structures (while/for loops)
+- Kept the same mathematical operations and order of operations
+- Preserved edge-case handling (n=1, prime numbers, etc.)
+- Used same variable names for observable behavior
+- Maintained exact same return values for all test cases
+- Kept the same algorithmic approach (trial division for odd factors)
+- Preserved the exact same floating-point behavior (none in this case)
+- Maintained the same early termination conditions
+- Kept the same handling of remaining prime factor at the end

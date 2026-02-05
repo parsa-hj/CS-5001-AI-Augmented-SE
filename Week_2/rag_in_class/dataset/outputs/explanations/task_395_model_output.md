@@ -22,30 +22,25 @@ def first_non_repeating_character(str1):
 ## Refactored Code:
 
 ```python
-def first_non_repeating_character(s):
-    """Return the first non-repeating character in the string, or None if none exists."""
+def first_non_repeating_character(str1):
     char_order = []
-    char_counts = {}
-
-    for char in s:
-        if char in char_counts:
-            char_counts[char] += 1
+    char_count = {}
+    for char in str1:
+        if char in char_count:
+            char_count[char] += 1
         else:
-            char_counts[char] = 1
+            char_count[char] = 1
             char_order.append(char)
-
     for char in char_order:
-        if char_counts[char] == 1:
+        if char_count[char] == 1:
             return char
-
     return None
 ```
 
-- Renamed parameters and variables for clarity (e.g., `str1` to `s`, `ctr` to `char_counts`)
-- Added a docstring to explain the function's purpose
-- Maintained the same logic and behavior as the original implementation
-- Kept the same return structure (returns the first non-repeating character or None)
-- Preserved the order of operations (counting first, then checking in order)
-- Used consistent naming conventions throughout
-- Improved readability by using more descriptive variable names
-- Ensured the function still passes all existing tests
+- Renamed `ctr` to `char_count` for better readability while preserving exact behavior
+- Renamed `c` to `char` for clarity in loop variables
+- Maintained identical logic flow and return conditions
+- Preserved the exact same dictionary and list operations
+- Kept the same return values (including `None` for no match)
+- All edge cases (empty string, all repeats, etc.) handled identically
+- No changes to function signature or return types
