@@ -8,7 +8,6 @@ You are a careful software engineer refactoring Python code.
 ## Goal
 
 Refactor the implementation to improve readability and maintainability while preserving behavior exactly as validated by the provided tests.
-
 Behavioral preservation is more important than style improvements.
 
 ## Critical Rules (must follow)
