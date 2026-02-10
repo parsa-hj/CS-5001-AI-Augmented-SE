@@ -154,6 +154,8 @@ cca --repo output/demo_flask commit \
   --push
 ```
 
+### Example 4
+
 ```bash
 cca --repo output/demo_streamlit create \
   --desc "Create a project with Streamlit that shows a number is prime or not after taking an input" \

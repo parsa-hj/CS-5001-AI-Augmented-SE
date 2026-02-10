@@ -45,7 +45,6 @@ class Agent:
     def create_tests(self, desc: str, module_path: str, tests_path: str) -> RunResult:
         module_code = self.tools.read(module_path)
         existing_tests = self.tools.read(tests_path)
-
         raw = self.llm.generate(tests_prompt(desc, module_path, module_code, existing_tests))
         content = strip_code_fences(raw)
         print(content)
@@ -61,7 +60,7 @@ class Agent:
         cov_json_path = self.repo / ".coverage.json"
         cmd = f"coverage run -m pytest -q && coverage json -o {cov_json_path.name}"
         ok, out = self.tools.run(cmd)
-
+        print(ok, out)
         total: float = 0.0
         data: Dict[str, Any] = {}
         if cov_json_path.exists():
@@ -85,12 +84,11 @@ class Agent:
         fail_on_coverage: Optional[float],
     ) -> RunResult:
         result = self._run_tests_with_coverage()
-
         cov_data = result.get("coverage_data", {}) or {}
         module_summary: Dict[str, Any] = {}
+        print(cov_data)
         if module_path:
             module_summary = self._module_coverage_summary(cov_data, module_path)
-
         report: Dict[str, Any] = {
             "timestamp_utc": datetime.now(timezone.utc).isoformat(),
             "agent_config": asdict(self.cfg),
