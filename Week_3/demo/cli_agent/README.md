@@ -103,39 +103,71 @@ The `full` command composes **program creation**, **test generation**, and **tes
 ### Example 1
 
 ```bash
-cca --repo output/demo_repo full \
+cca --repo output/demo_repo create \
+  --desc "A calculator with add, subtract, multiply, divide functions" \
+  --module src/calculator.py && \
+cca --repo output/demo_repo gen-tests \
   --desc "A calculator with add, subtract, multiply, divide functions" \
   --module src/calculator.py \
-  --tests tests/test_calculator.py \
-  --coverage "at least ninety five percent"
+  --tests tests/test_calculator.py && \
+cca --repo output/demo_repo report \
+  --fail-on-tests \
+  --fail-on-coverage "90 percent" && \
+cca --repo output/demo_repo commit \
+  --message "Agent: add calculator program and tests" \
+  --push
 ```
 
 ### Example 2
 
 ```bash
-cca --repo output/demo_repo full \
+cca --repo output/demo_repo create \
+  --desc "Create Prime Number Checker in Python" \
+  --module src/prime_checker.py && \
+cca --repo output/demo_repo gen-tests \
   --desc "Create Prime Number Checker in Python" \
   --module src/prime_checker.py \
-  --tests tests/test_prime_checker.py \
-  --coverage "at least 80 percent"
+  --tests tests/test_prime_checker.py && \
+cca --repo output/demo_repo report \
+  --fail-on-tests \
+  --fail-on-coverage "80 percent" && \
+cca --repo output/demo_repo commit \
+  --message "Agent: add prime checker and tests" \
+  --push
 ```
 
 ### Example 3
 
 ```bash
-cca --repo output/demo_flask full \
+cca --repo output/demo_flask create \
+  --desc "Create a minimal project with FLASK" \
+  --module src/flask.py && \
+cca --repo output/demo_flask gen-tests \
   --desc "Create a minimal project with FLASK" \
   --module src/flask.py \
-  --tests tests/test_flask.py \
-  --coverage "at least 80 percent"
+  --tests tests/test_flask.py && \
+cca --repo output/demo_flask report \
+  --fail-on-tests \
+  --fail-on-coverage "80 percent" && \
+cca --repo output/demo_flask commit \
+  --message "Agent: add flask project and tests" \
+  --push
 ```
 
 ```bash
-cca --repo output/demo_streamlit full \
+cca --repo output/demo_streamlit create \
+  --desc "Create a project with Streamlit that shows a number is prime or not after taking an input" \
+  --module src/app.py && \
+cca --repo output/demo_streamlit gen-tests \
   --desc "Create a project with Streamlit that shows a number is prime or not after taking an input" \
   --module src/app.py \
-  --tests tests/test_app.py \
-  --coverage "at least 80 percent"
+  --tests tests/test_app.py && \
+cca --repo output/demo_streamlit report \
+  --fail-on-tests \
+  --fail-on-coverage "80 percent" && \
+cca --repo output/demo_streamlit commit \
+  --message "Agent: add streamlit app and tests" \
+  --push
 ```
 
 ---
