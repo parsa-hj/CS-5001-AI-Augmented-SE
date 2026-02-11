@@ -17,6 +17,8 @@ A CLI agent that generates Python code from natural language descriptions with d
 
 ## Installation
 
+*You need to run this command everytime you change in your code.*
+
 ```bash
 pip install -e .
 ```
